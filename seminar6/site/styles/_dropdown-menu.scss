@@ -1,0 +1,188 @@
+@import "vars";
+@import "mixins";
+
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown-menu {
+  display: flex;
+  position: relative;
+  height: 132px;
+  box-sizing: border-box;
+  padding-top: 39px;
+  gap: 30px;
+
+  .filter {
+    padding-top: 13px;
+    width: 360px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+
+    &__content {
+      padding: 0 16px 16px;
+      background-color: $whiteColorSite;
+      box-shadow: 6px 4px 35px rgba(0, 0, 0, .21);
+    }
+
+    &[open] {
+      background: $whiteColorSite;
+
+    }
+
+    &[open] .filter__top-heading {
+      color: $pinkColorSite;
+    }
+
+    &[open] path {
+      fill: $pinkColorSite;
+    }
+
+    &__text {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding-left: 16px;
+    }
+
+    &__top-heading {
+      @include font(14px, 700);
+    }
+
+    &__item {
+      margin-top: 16px;
+    }
+
+    &__heading {
+      @include font(14px, 400);
+      color: $greyColorDropdownMenu;
+      padding: 8px 11px 11px 11px;
+      border-bottom: 1px solid rgb(235, 235, 235);
+      border-left: 5px solid $pinkColorSite;
+    }
+
+    &__item[open] .filter__heading {
+      color: $pinkColorSite;
+    }
+
+    &__link-box {
+      @include flex-center-column;
+      align-items: normal;
+      gap: 11px;
+      padding: 24px 16px;
+    }
+
+    &__link {
+      @include font(14px, 400);
+      color: $greyColorDropdownMenu;
+
+      &:hover {
+        color: $pinkColorSite;
+      }
+    }
+  }
+
+  .center-menu {
+    display: flex;
+    gap: 28px;
+    padding-top: 13px;
+
+
+    &__block {
+      position: relative;
+    }
+
+    &__text {
+      @include flex-center;
+      gap: 10px;
+    }
+
+    &__heading {
+      @include font(14px, 400);
+      color: $greyColorDropdownMenu;
+    }
+
+    &__box {
+      background: $whiteColorSite;
+      box-shadow: 6px 4px 35px rgba(0, 0, 0, .21);
+      padding: 7px 30px 11px 9px;
+      position: absolute;
+      left: -9px;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    &__check {
+      display: flex;
+      gap: 9px;
+      @include font(14px, 400);
+      color: $greyColorDropdownMenu;
+    }
+
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdown-menu {
+    gap: 61px;
+    padding-top: 24px;
+    height: auto;
+    padding-bottom: 32px;
+    justify-content: space-around;
+
+    .filter {
+      width: 45px;
+
+      /*
+      Второй вариант реализации. Полное скрытие выпадающего меню
+      TRENDING NOW | SIZE | PRICE
+       */
+      //&[open] ~ .center-menu {
+      //  display: none;
+      //}
+
+      &__text {
+        padding-left: 8px;
+      }
+
+      &__text svg {
+        @include width-height(37px, 25px);
+      }
+
+      &__content {
+        width: 322px;
+        top: 13px;
+        left: 53px;
+        position: absolute;
+        // При втором варианте реализации выпадающее меню &__content
+        // растягивает на всю ширину экрана и располагается под SVG
+      }
+
+      &__top-heading {
+        display: none;
+      }
+
+
+    }
+
+    .center-menu {
+      gap: 24px;
+      padding-right: 8px;
+
+      &__heading {
+        @include font(12px, 400);
+      }
+
+      &__text {
+        gap: 7px;
+      }
+    }
+  }
+}

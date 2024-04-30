@@ -1,0 +1,134 @@
+@import "vars";
+@import "mixins";
+@import "see-all";
+
+.fetured-items {
+  @include flex-center-column;
+  margin-bottom: 95px;
+
+  .text {
+    @include flex-center-column;
+    align-items: normal;
+    gap: 6px;
+    text-align: center;
+    padding-bottom: 48px;
+
+    .title {
+      color: $darkColorSite;
+      @include font(30px, 400);
+    }
+
+    .sub-title {
+      color: rgb(159, 159, 159);
+      @include font(14px, 400);
+    }
+  }
+
+  .banners {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+
+    .banner {
+      .img1 {
+        @include products-list-img(url("../img/banner1.png"));
+      }
+
+      .img2 {
+        @include products-list-img(url("../img/banner2.png"));
+        background: url("../img/banner2.png") center no-repeat, rgb(247, 228, 226);
+      }
+
+      .img3 {
+        @include products-list-img(url("../img/banner3.png"));
+      }
+
+      .img4 {
+        @include products-list-img(url("../img/banner4.png"));
+      }
+
+      .img5 {
+        @include products-list-img(url("../img/banner5.png"));
+      }
+
+      .img6 {
+        @include products-list-img(url("../img/banner6.png"));
+      }
+
+      .fetured_items__img {
+        .fetured_items__hover-block {
+          display: none;
+
+          .box {
+            border: 1px solid $whiteColorSite;
+            @include width-height(139px, 44px);
+            @include flex-center;
+            justify-content: space-evenly;
+
+            .box__text {
+              color: $whiteColorSite;
+              @include font(14px, 400);
+            }
+          }
+        }
+      }
+
+      .fetured_items__img:hover {
+        .fetured_items__hover-block {
+          box-shadow: inset 0 0 0 1000px rgba(58, 56, 56, 0.86);
+          @include flex-center;
+          @include width-height(360px, 420px);
+        }
+      }
+    }
+
+    .text {
+      margin: 24px 29px 0 16px;
+      width: 313px;
+
+      .title {
+        @include font(13px, 400);
+        text-align: left;
+        padding-bottom: 13px;
+      }
+
+      .sub-title {
+        @include font(14px, 300);
+        text-align: left;
+        color: $greyColorSite;
+        padding-bottom: 18px;
+      }
+
+      .price {
+        color: $pinkColorSite;
+        @include font(16px, 400);
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fetured-items {
+    .banners {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-gap: 16px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .fetured-items {
+    .text {
+      padding-bottom: 64px;
+    }
+
+    .banners {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 16px;
+    }
+  }
+}

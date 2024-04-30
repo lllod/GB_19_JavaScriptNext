@@ -1,0 +1,138 @@
+@import "vars";
+@import "mixins";
+
+.product-center {
+  margin-left: calc(50% - $widthSite / 2);
+  margin-right: calc(50% - $widthSite / 2);
+}
+
+.product-info {
+  border: 1px solid rgb(234, 234, 234);
+  @include width-height(1140px, 601px);
+  position: relative;
+  top: -65px;
+  background: $whiteColorSite;
+
+  &__content {
+    padding-top: 65px;
+    @include flex-center-column;
+
+    &__category {
+      @include flex-center-column;
+      gap: 12px;
+
+      &__text {
+        @include font(14px, 300);
+        color: $pinkColorSite;
+      }
+
+      &__rectangle {
+        @include width-height(63px, 3px);
+        background: $pinkColorSite;
+      }
+    }
+
+    &__title {
+      @include font(18px, 300);
+      color: rgb(77, 77, 77);
+      margin-top: 12px;
+    }
+
+    &__description {
+      @include font(14px, 300);
+      color: $greyColorSite;
+      width: 555px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    &__cost {
+      margin-top: 32px;
+      @include font(24px, 300);
+      color: $pinkColorSite;
+    }
+
+    &__line {
+      margin-top: 65px;
+      border: 1px solid rgb(234, 234, 234);
+      width: 641px;
+    }
+
+    &__select {
+      margin-top: 65px;
+      @include flex-center;
+      gap: 23px;
+      margin-bottom: 48px;
+
+      &__item {
+        @include font(14px, 400);
+        color: $greyColorSite;
+        //margin-top: 65px;
+      }
+    }
+
+    &__cart {
+      @include width-height(212px, 48px);
+      border: 1px solid $pinkColorSite;
+      @include flex-center;
+      justify-content: space-evenly;
+      margin-bottom: 64px;
+
+      &__text {
+        @include font(16px, 400);
+        color: $pinkColorSite;
+      }
+    }
+
+    &__cart:hover svg path,
+    &__cart:hover p,
+    &__cart:hover {
+      background: $pinkColorSite;
+      fill: $whiteColorSite;
+      color: $whiteColorSite;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .product-center {
+    margin-left: calc(50% - $widthMiddleSite / 2);
+    margin-right: calc(50% - $widthMiddleSite / 2);
+  }
+
+  .product-info {
+    width: 766px;
+    top: 0;
+    left: -15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-info {
+    width: 375px;
+    top: 0;
+    left: 382px;
+
+    &__content {
+      &__description {
+        width: 326px;
+        margin-top: 32px;
+      }
+
+      &__line {
+        margin-top: 32px;
+        width: 174px;
+      }
+
+      &__select {
+        margin-top: 49px;
+        margin-bottom: 64px;
+
+        &__item {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+}

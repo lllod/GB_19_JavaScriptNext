@@ -1,0 +1,129 @@
+@import "vars";
+@import "mixins";
+
+.main-head {
+  height: 75px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: $darkColorSite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+
+  .left_icons {
+    display: flex;
+    gap: 41px;
+    align-items: flex-end;
+  }
+
+  .search {
+    height: 26px;
+  }
+
+  .right_icons {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end;
+
+
+    &__burger-menu {
+
+      .burger-nav {
+        background: $whiteColorSite;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, .21);
+        width: 232px;
+        padding: 32px;
+        position: absolute;
+        top: 75px;
+        right: -232px;
+        transition: right 0.3s;
+
+        &__title {
+          @include font(14px, 700);
+          line-height: 17px;
+          color: rgb(0, 0, 0);
+        }
+
+        &__sub-title {
+          padding-top: 20px;
+          padding-bottom: 12px;
+          @include font(14px, 700);
+          line-height: 17px;
+          color: $pinkColorSite;
+        }
+
+        &__li {
+          list-style-type: none;
+          margin-left: 21px;
+          @include font(14px, 700);
+          line-height: 25px;
+          color: $greyColorDropdownMenu;
+        }
+
+        &__delete {
+          @include width-height(12px, 12px);
+          top: 16px;
+          left: 200px;
+          position: absolute;
+        }
+
+        &__delete:hover svg path,
+        &__delete:hover {
+          fill: $pinkColorSite;
+        }
+
+        &__btn {
+          border: 0 none;
+          background: none;
+        }
+      }
+
+      #burger {
+        position: absolute;
+        left: -999999999px;
+        visibility: hidden;
+
+        &:checked ~ .burger-nav {
+          right: 0;
+        }
+      }
+
+    }
+
+    &__menu-icons {
+      display: flex;
+      gap: 25px;
+    }
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-head {
+    justify-content: center;
+    gap: 424px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-head {
+    gap: 200px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    .right_icons {
+      gap: 0;
+      margin-right: -20px;
+
+      .hidden-icon {
+        position: absolute;
+        left: -99999999px;
+        visibility: hidden;
+      }
+    }
+  }
+}

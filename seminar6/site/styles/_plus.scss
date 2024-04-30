@@ -1,0 +1,53 @@
+@import "vars";
+@import "mixins";
+
+.plus {
+  background: $darkColorSite;
+  height: 341px;
+
+  .content {
+    @include flex-center;
+    gap: 30px;
+    padding: 104px 0;
+
+    .block {
+      @include width-height(360px, auto);
+      @include flex-center-column;
+
+      .title {
+        color: $whiteColorSite;
+        @include font(20px, 400);
+        margin: 19px 0 16px;
+      }
+
+      .subtitle {
+        color: $whiteColorSite;
+        @include font(14px, 300);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .plus {
+    height: auto;
+
+    .content {
+      @include flex-center-column;
+      padding: 48px 0 64px;
+      gap: 48px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .plus {
+    height: auto;
+
+    .content {
+      @include flex-center-column;
+      padding: 48px 0 81px;
+      gap: 46px;
+    }
+  }
+}

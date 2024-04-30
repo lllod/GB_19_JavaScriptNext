@@ -1,0 +1,350 @@
+@import "vars";
+@import "mixins";
+
+.cart-content {
+  display: flex;
+  gap: 128px;
+  padding-top: 96px;
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    width: 652px;
+
+    &__cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      &__card {
+        @include width-height(652px, 306px);
+        background: $whiteColorSite;
+        -webkit-box-shadow: 8px 8px 15px 4px rgba(0, 0, 0, 0.15);
+        box-shadow: 8px 8px 15px 4px rgba(0, 0, 0, 0.15);
+        display: flex;
+        gap: 31px;
+
+        .card-img {
+          .img-big {
+            @include width-height(262px, 100%);
+          }
+        }
+
+        .card-data {
+          display: flex;
+          flex-direction: column;
+          gap: 42px;
+          @include width-height(262px, 222px);
+          padding-top: 22px;
+
+          &__title {
+            color: $darkColorSite;
+            @include font(24px, 400);
+            line-height: 29px;
+            letter-spacing: 0;
+            word-spacing: 8px;
+          }
+
+
+          &__parameters {
+            color: $greyColorSite;
+            @include font(22px, 400);
+            line-height: 26px;
+            letter-spacing: 0;
+
+            .pink {
+              color: $pinkColorSite;
+            }
+
+            .light-grey {
+              color: $greyColorDropdownMenu;
+            }
+
+            .quantity {
+              .quantity-form {
+                .quantity-input {
+                  @include width-height(44px, 25px);
+                  margin-left: 24px;
+                  border: 1px solid rgb(234, 234, 234);
+                  background: $whiteColorSite;
+                  text-align: center;
+                  @include font(18px, 400);
+                  color: $greyColorDropdownMenu;
+                }
+              }
+            }
+          }
+        }
+
+        .card-delete {
+          @include width-height(18px, 18px);
+
+          .delete-icon-big {
+            margin-left: 26px;
+            margin-top: 28px;
+          }
+
+          button {
+            border: 0 none;
+            background: none;
+          }
+        }
+
+        .card-delete:hover svg path,
+        .card-delete:hover {
+          fill: $pinkColorSite;
+        }
+      }
+    }
+
+    &__cards-nav {
+      display: flex;
+      justify-content: space-between;
+
+      .btn {
+        height: 50px;
+        border: 1px solid rgb(164, 164, 164);
+
+        &__text {
+          @include font(14px, 300);
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+      }
+
+      .btn:hover, &__text:hover {
+        @include btn_hover;
+      }
+    }
+
+  }
+
+  &__forms {
+    padding-top: 17px;
+
+    &__address-form {
+      @include width-height(360px, 272px);
+
+      .delivery-address {
+        border: 0 none;
+
+        .delivery-address__labels {
+          padding-top: 20px;
+          padding-bottom: 23px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .delivery-input {
+            @include width-height(100%, 45px);
+            background: $whiteColorSite;
+            border: 1px solid $greyFormBorder;
+            @include font(13px, 300);
+            color: $darkColorSite;
+            padding-left: 17px;
+          }
+
+          .delivery-input::placeholder {
+            color: $greyFontColors;
+          }
+        }
+
+        .delivery-btn {
+          padding: 10px 14px 12px 15px;
+          @include font(11px, 300);
+          color: rgb(74, 74, 74);
+          border: 1px solid $greyFormBorder;
+        }
+
+        .delivery-btn:hover {
+          @include btn_hover;
+        }
+      }
+
+
+      &__title {
+        @include font(16px, 300);
+        color: $darkColorSite;
+      }
+    }
+
+    &__total-info {
+      margin-top: 57px;
+      padding-top: 39px;
+      background: rgb(245, 243, 243);
+      display: flex;
+      flex-direction: column;
+
+      &__sub-text {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 34px;
+        gap: 25px;
+        @include font(11px, 400);
+        color: rgb(74, 74, 74);
+      }
+
+      &__grand-text {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 37px;
+        gap: 25px;
+        padding-top: 12px;
+
+        .text {
+          @include font(16px, 300);
+          color: $darkColorSite;
+        }
+
+        .price {
+          @include font(16px, 700);
+          color: $pinkColorSite;
+        }
+
+      }
+
+      &__line {
+        background: rgb(226, 226, 226);
+        @include width-height(275px, 1px);
+        margin: 21px 42px 17px 43px;
+      }
+
+      &__form {
+        margin-left: 44px;
+        margin-bottom: 42px;
+
+        .btn {
+          @include font(16px, 300);
+          color: rgb(0, 0, 0);
+          border: 1px solid $greyFormBorder;
+          padding: 15px 43px 16px 41px;
+        }
+
+        .btn:hover {
+          @include btn_hover;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cart-content {
+    padding-top: 59px;
+    @include flex-center-column;
+    gap: 64px;
+    margin-bottom: 128px;
+
+    &__cards {
+      gap: 62px;
+    }
+
+    &__forms {
+      @include flex-center;
+      gap: 15px;
+
+      &__total-info {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .cart-content {
+    @include flex-center-column;
+    gap: 48px;
+    padding-top: 39px;
+
+    &__cards {
+      width: 358px;
+      gap: 30px;
+
+      &__cards-list {
+        gap: 32px;
+
+        &__card {
+          @include width-height(358px, 188px);
+          gap: 17px;
+
+          .card-img {
+            .img-big {
+              @include width-height(143px, 188px);
+            }
+          }
+
+          .card-data {
+            width: 144px;
+            gap: 25px;
+            padding-top: 13px;
+
+            &__title {
+              @include font(16px, 400);
+              line-height: 19px;
+              word-spacing: 8px;
+            }
+
+            &__parameters {
+              @include font(14px, 400);
+              line-height: 17px;
+
+              .quantity {
+                .quantity-form {
+                  .quantity-input {
+                    @include width-height(23px, 14px);
+                    margin-left: 15px;
+                    @include font(10px, 400);
+                  }
+                }
+              }
+            }
+          }
+
+          .card-delete svg {
+            @include width-height(10px, 11px);
+          }
+
+          .card-delete {
+            @include width-height(10px, 11px);
+            margin-top: -10px;
+            margin-left: -12px;
+
+            button {
+              border: 0 none;
+            }
+          }
+        }
+      }
+
+      &__cards-nav {
+        .btn {
+          height: 33px;
+
+          &__text {
+            @include font(12px, 300);
+            padding-left: 18px;
+            padding-right: 18px;
+          }
+        }
+      }
+    }
+
+    &__forms {
+      padding-top: 0;
+
+      &__address-form {
+        .delivery-address {
+          .delivery-btn {
+            font-weight: 400;
+          }
+        }
+      }
+
+      &__total-info {
+        margin-top: 48px;
+        padding-top: 0;
+      }
+    }
+  }
+}

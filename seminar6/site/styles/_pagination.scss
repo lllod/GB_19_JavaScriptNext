@@ -1,0 +1,46 @@
+@import "vars";
+@import "mixins";
+
+.pagination {
+  margin-bottom: 97px;
+  @include flex-center;
+
+  &__nav {
+    border: 1px solid rgb(235, 235, 235);
+    @include width-height(284px, 44px);
+  }
+
+  &__box {
+    padding-top: 11px;
+    padding-right: 16px;
+    padding-left: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    @include font(16px, 300);
+    color: rgb(196, 196, 196);
+  }
+
+  &__item:hover {
+    color: $pinkColorSite;
+  }
+
+  &__left-right:hover path {
+    fill: $pinkColorSite;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pagination {
+    margin-bottom: 63px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pagination {
+    margin-bottom: 64px;
+  }
+}

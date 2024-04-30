@@ -1,0 +1,128 @@
+@import "vars";
+@import "mixins";
+
+.reviews-and-subscribe {
+  height: 448px;
+  background: rgba(240 240 240) url("../img/footer-back.png") no-repeat;
+  display: flex;
+  justify-content: center;
+  padding-top: 97px;
+
+  .reviews {
+    @include flex-center-column;
+    width: 359px;
+    gap: 30px;
+
+    .text {
+      color: $darkColorSite;
+      @include font(20px, 400);
+      text-align: center;
+    }
+  }
+
+  .subscribe {
+    @include flex-center-column;
+    width: 557px;
+    margin-top: 53px;
+    line-height: 167%;
+
+    .title {
+      color: $darkColorSite;
+      @include font(24px, 700);
+    }
+
+    .sub-title {
+      color: $darkColorSite;
+      @include font(18px, 400);
+      margin-bottom: 32px;
+    }
+
+    .form {
+      &__email-enter {
+        display: flex;
+      }
+    }
+
+    &__email {
+      background: $whiteColorSite;
+      @include width-height(256px, 49px);
+      border: 0;
+      border-radius: 8% 0 0 8% / 50%;
+      padding-left: 22px;
+    }
+
+    &__email::placeholder {
+      color: $darkColorSite;
+      @include font(14px, 400);
+      opacity: 0.67;
+    }
+
+    &__btn {
+      @include width-height(100px, 49px);
+      background: $pinkColorSite;
+      border-radius: 0 20% 20% 0 / 50% 50%;
+      @include flex-center;
+      border: 0 solid $pinkColorSite;
+
+      .text {
+        color: $whiteColorSite;
+        @include font(14px, 400);
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media(min-width: 768px) and (max-width: 1024px) {
+  .reviews-and-subscribe {
+    height: 614px;
+    @include flex-center-column;
+    padding-top: 53px;
+    padding-bottom: 140px;
+    background-position: left bottom;
+    justify-content: flex-start;
+
+    .subscribe {
+      margin-top: 48px;
+      width: 359px;
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .reviews-and-subscribe {
+    height: 550px;
+    @include flex-center-column;
+    padding-top: 53px;
+    padding-bottom: 110px;
+    background-position: left bottom;
+    justify-content: flex-start;
+
+    .reviews {
+      width: 341px;
+
+      .text {
+        @include font(18px, 400);
+      }
+    }
+
+    .subscribe {
+      margin-top: 59px;
+      width: 341px;
+
+      .sub-title {
+        @include font(14px, 400);
+        margin-bottom: 22px;
+      }
+
+      &__email {
+        @include width-height(246px, 47px);
+        padding-left: 21px;
+      }
+
+      &__btn {
+        @include width-height(95px, 47px);
+      }
+    }
+  }
+}

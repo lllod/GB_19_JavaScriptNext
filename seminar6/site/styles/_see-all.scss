@@ -1,0 +1,24 @@
+@import "vars";
+
+.see_all {
+    padding-top: 48px;
+}
+
+.see_all .rectangle {
+    border: 1px solid $pinkColorSite;
+    width: 212px;
+    height: 48px;
+}
+
+.see_all .rectangle .text {
+    color: $pinkColorSite;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 14px 39px;
+    white-space: nowrap;
+}
+
+.see_all .rectangle:hover .text:hover{
+    background: $pinkColorSite;
+    color: rgb(255, 255, 255);
+}

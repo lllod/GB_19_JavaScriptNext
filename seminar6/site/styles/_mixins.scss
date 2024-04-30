@@ -1,0 +1,40 @@
+@import "vars";
+
+@mixin flex-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin reviews-and-subscribe_mp($width, $margin-top) {
+  width: $width;
+  margin-top: $margin-top;
+}
+
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin products-list-img($img-background) {
+  background: $img-background;
+  width: 360px;
+  height: 420px;
+}
+
+@mixin btn_hover {
+  background: $pinkColorSite;
+  border: 1px solid $pinkColorSite;
+  color: $whiteColorSite;
+}

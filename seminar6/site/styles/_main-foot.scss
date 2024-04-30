@@ -1,0 +1,55 @@
+@import "vars";
+@import "mixins";
+
+.main-foot {
+  height: 79px;
+  background: $darkColorSite;
+  @include flex-center;
+  justify-content: space-around;
+
+  &__copirate {
+    color: $whiteColorSite;
+    @include font(16px, 400);
+  }
+
+  &__soc-icons {
+    display: flex;
+    gap: 7px;
+
+    &__block {
+      @include width-height(32px, 32px);
+      @include flex-center;
+      background: $whiteColorSite;
+    }
+
+    &__block:hover svg path,
+    &__block:hover {
+      background: $pinkColorSite;
+      fill: $whiteColorSite;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-foot {
+    justify-content: center;
+    gap: 305px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-foot {
+    height: 143px;
+    @include flex-center-column;
+    flex-direction: column-reverse;
+    gap: 25px;
+
+    &__copirate {
+      margin-bottom: 24px;
+    }
+
+    &__soc-icons {
+      margin-top: 43px;
+    }
+  }
+}

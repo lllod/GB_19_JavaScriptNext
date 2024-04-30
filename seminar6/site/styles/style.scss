@@ -1,0 +1,22 @@
+@import "vars";
+@import "body";
+@import "main-head";
+@import "top-banner";
+@import "catalog-banners";
+@import "fetured-items";
+@import "plus";
+@import "reviews-and-subscribe";
+@import "main-foot";
+@import "breadcrumb";
+@import "slider";
+@import "product-info";
+@import "similar-products";
+@import "catalog-products";
+@import "dropdown-menu";
+@import "pagination";
+@import "cart-content";
+@import "registration-form";
+
+body {
+  overflow-x: hidden;
+}
