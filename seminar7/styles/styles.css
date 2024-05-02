@@ -1,0 +1,79 @@
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.containerVideo {
+    position: relative;
+    width: 100%;
+    max-width: 890px;
+    margin: 0 auto;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 75px;
+}
+
+.playPause {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.play, .pause, .stop, .fullscreen {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-size: cover;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    margin-left: 5px;
+}
+
+.play:hover, .pause:hover, .stop:hover, .fullscreen:hover {
+    opacity: 1;
+}
+
+.play {
+    background-image: url("../img/play-button-svgrepo-com.svg");
+}
+
+.pause {
+    background-image: url("../img/pause-button-svgrepo-com.svg");
+}
+
+.stop {
+    background-image: url("../img/stop-button-svgrepo-com.svg");
+}
+
+.fullscreen {
+    background-image: url("../img/fullscreen-alt-svgrepo-com.svg");
+    margin-left: 5px;
+}
+
+input[type="range"] {
+    width: calc(100% - 205px);
+}
+
+input[type="range"].volumeRange {
+    width: 50px;
+    height: 5px;
+    transform: rotate(270deg);
+}
